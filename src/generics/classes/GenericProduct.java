@@ -6,6 +6,7 @@ package generics.classes;
 public class GenericProduct <T>{
 
     /*
+    Generic olarak sadece NON-PIMITIVE data type'i kullanilabilir!
     E --> Element,Collection gibi yapilarda kullanilir
     K --> Key
     V --> Value
@@ -14,15 +15,16 @@ public class GenericProduct <T>{
     S,U,V ... --> 2,3,4,type'lar icin
      */
 
+    private T code; // T-herhangi bir NON-PRIMITIVE data type
+
+    //getter ve setter
 
 
+    public T getCode() {
+        return code;
+    }
 
-
-
-
-
-
-
-
-
+    public void setCode(T code) {
+        this.code = code;
+    }
 }
