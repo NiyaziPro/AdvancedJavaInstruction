@@ -1,21 +1,21 @@
 package generics.classes;
-// amacimiz : farkli data type'deki urun kodlarini tutabilmek icin ayri ayri classlar olusturmadan ( book, phone, laptop... )
-// tek bir class ile urun objelerini olusturmak
-// cozum : generic bir product class
+// our goal: to be able to hold product codes of different data types without creating separate classes (book, phone, laptop...)
+// to create product objects with a single class
+// solution: a generic product class
 
 public class GenericProduct <T>{
 
     /*
-    Generic olarak sadece NON-PIMITIVE data type'i kullanilabilir!
-    E --> Element,Collection gibi yapilarda kullanilir
+    Only NON-PIMITIVE data type can be used generics!
+    E --> Element,Collection
     K --> Key
     V --> Value
     N --> Number
     T --> Type
-    S,U,V ... --> 2,3,4,type'lar icin
+    S,U,V ... --> 2,3,4,type
      */
 
-    private T code; // T-herhangi bir NON-PRIMITIVE data type
+    private T code; // T-any NON-PRIMITIVE data type
 
     //getter ve setter
 

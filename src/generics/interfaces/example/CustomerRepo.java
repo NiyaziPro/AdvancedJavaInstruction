@@ -1,5 +1,5 @@
 package generics.interfaces.example;
-
+//Customer's Database operations
 public class CustomerRepo implements Repo<Customer>{
 
 

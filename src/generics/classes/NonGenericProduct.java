@@ -1,11 +1,11 @@
 package generics.classes;
 
-// amacimiz : farkli data type'deki urun kodlarini tutabilmek icin ayri ayri classlar olusturmadan ( book, phone, laptop... )
-// tek bir class ile urun objelerini olusturmak
+// Our goal: to create product objects with a single class without creating separate
+// classes to hold product codes of different data types (book, phone, laptop...)
 public class NonGenericProduct {
 
-    private Object code;    // code fieldinin data type object oldugu icin olusturulan nesnelerin code ozelliginde
-                            // tum data tipleri kullanilabilir
+    private Object code;    // Since the code field is a data type object,
+    // all data types can be used in the code property of the created objects.
 
     // getter-setter
 

@@ -1,13 +1,13 @@
 package generics.bounding;
 
-// generic yapilarda parametre olarak alinan data type'ini ustten sinirlandirabiliriz
-// T : sadece Number classinin alt siniflari ile sinirlandiralim
+// We can limit the data type taken as a parameter in generic structures.
+// T : restricted to subclasses of the Number class only
 // T : BYTE, SHORT , INTEGER , DOUBLE , LONG , FLOAT , NUMBER
 public class GenericUpperBound<T extends Number> {
 
     public T[] numberArray;
 
-    // numberArray icindeki elemanlarin ortalamasini hesaplayan method
+    // Method that calculates the average of the elements in numberArray
 
     public Double getAverage() {
         double sum = 0;
@@ -35,7 +35,8 @@ public class GenericUpperBound<T extends Number> {
         object2.numberArray = doubles;
         System.out.println(object2.getAverage());
 
-        // GenericUpperBound<String> object3 = new GenericUpperBound<>(); String kabul etmez cunku sinirlandirdik
+        // GenericUpperBound<String> object3 = new GenericUpperBound<>();
+        // It does not accept string because we restricted it
 
 
 

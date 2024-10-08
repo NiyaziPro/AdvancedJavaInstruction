@@ -1,6 +1,6 @@
 package generics.interfaces;
 
-public interface GenericInterface<T> {
+public interface  GenericInterface<T> {
 
     void print(T value);
 

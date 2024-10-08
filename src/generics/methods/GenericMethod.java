@@ -11,30 +11,30 @@ public class GenericMethod {
         String[] strings = {"Java", "Generics", "are", "fantastic."};
 
 
-        System.out.println("--- printArray methodu ile yazdirma ---");
+        System.out.println("--- Printing with printArray method ---");
         printArray(integers);
         printArray(doubles);
         printArray(strings);
 
 
         // Generic methods
-        System.out.println("GENERIC printArrayGeneric Methodu");
+        System.out.println("GENERIC printArrayGeneric Method");
         printArrayGeneric(integers);
         printArrayGeneric(doubles);
         printArrayGeneric(strings);
 
-        System.out.println("GENERIC getFirst Methodu");
+        System.out.println("GENERIC getFirst Method");
         System.out.println(getFirst(integers));
         System.out.println(getFirst(doubles));
         System.out.println(getFirst(strings));
 
-        System.out.println("Coklu parametreli Generic method");
+        System.out.println("Generic method with multiple parameters");
         printArrAndElement(integers, "Generics");
 
 
     }
 
-    // arrayleri yazdirmak icin method
+    // method for printing arrays
 
     public static  void printArray(Integer[]arr){
         Arrays.stream(arr).forEach(t-> System.out.print(t+" "));
@@ -59,7 +59,7 @@ public class GenericMethod {
         return first;
     }
 
-    // birden fazla data type ile Generic method
+    // Generic method with multiple data types
 
     public static <S,U> void printArrAndElement(S []arr , U element){
         Arrays.stream(arr).forEach(t-> System.out.print(t+" "));

@@ -46,8 +46,8 @@ public class GenericWithWildcard {
         printElements(objects);
 
     }
-    // alttan sinirlama
-    // Listeye 1 den 10 a kadar Integer elemanlari ekleyen bir method
+    // bottom irritation
+    // A method that adds Integer elements from 1 to 10 to the list
     // List : Integer,Number,Object
 
     public static void addEllement(List<? super Integer> list) {
