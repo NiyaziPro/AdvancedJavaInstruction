@@ -26,12 +26,36 @@ public class ThreadCreationWays {
             @Override
             public void run() {
                 System.out.println("Running Thread : " + Thread.currentThread().getName());
+                System.out.println("Thread3 will sleep.....");
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("Thread3 wake up");
                 System.out.println("Started thread3 prepared with Anonymous class.");
             }
         });
         thread3.start();
-        thread3.setName("Thirth Thread");
+        thread3.setName("Third Thread");
 
+        //2.Way : Lambda
+        Thread thread4 = new Thread(()->{
+            System.out.println("Running Thread : " + Thread.currentThread().getName());
+            System.out.println("Started thread3 prepared with Lambda.");
+        });
+        thread4.start();
+        thread4.setName("Forth Thread");
+
+
+        //Main thread is paused for a while
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
+
+        }
+        System.out.println(">>>>>>>>>>Main method is completed here<<<<<<<<<<");
 
     }
 }
