@@ -7,10 +7,10 @@ public class Runner {
         printPasswordStrengthConstant("LOW");
         printPasswordStrengthConstant("MEDIUM");
         printPasswordStrengthConstant("GOOD");
-        printPasswordStrengthConstant("PERFECT"); // Compile Time Error , Run Time Error yok, fakat istenen islev gerceklesmiyor !
+        printPasswordStrengthConstant("PERFECT"); // There is no Compile Time Error or Run Time Error, but the requested function does not occur!
 
 
-        // Cozum - sabit ve sinirli sayida degiskeni sadece parametre olarak vermek : Enum Type
+        // Solution - pass only fixed and limited number of variables as parameters : Enum Type
 
         System.out.println(">>>>>>>> Enum Type <<<<<<<<<<<");
         printPasswordStrengthEnum(PasswordStrength.LOW);
@@ -30,7 +30,7 @@ public class Runner {
         }
     }
 
-    // Enum type ile ayni method
+    // Same method as Enum type
     public static void printPasswordStrengthEnum(PasswordStrength strength) {
         if (strength.equals(PasswordStrength.LOW)) {
             System.out.println("Password strength  LOW");
