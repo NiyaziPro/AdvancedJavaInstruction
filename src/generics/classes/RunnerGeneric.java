@@ -30,7 +30,7 @@ public class RunnerGeneric {
         myMap.put("AdvJava",99.9);
 
 
-        // -------------------------------COK PARAMETRELI GENERIC CLASS ------------------------------------------
+        // -------------------------------MULTI-PARAMETER GENERIC CLASS------------------------------------------
 
         // S: String  ,  U:Integer
         GenericClassTwoParameters<String,Integer> generics = new GenericClassTwoParameters<>("Generic",99);
