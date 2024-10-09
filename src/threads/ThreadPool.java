@@ -59,7 +59,7 @@ class ThreadCreator extends Thread{
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName()+" started work. Task :  "+this.task);
+        System.out.println(Thread.currentThread().getName()+" \u001B[33mstarted work. Task :  "+this.task);
         System.out.println();
         //Our threads complete their work at different times.
         try {
@@ -67,7 +67,7 @@ class ThreadCreator extends Thread{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(Thread.currentThread().getName()+" completed his work.");
+        System.out.println(Thread.currentThread().getName()+" \u001B[34mcompleted his work.");
         System.out.println();
     }
 }
