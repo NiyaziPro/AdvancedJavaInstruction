@@ -3,7 +3,7 @@ package generics.bounding;
 import java.util.ArrayList;
 import java.util.List;
 
-// Wildcard (?) : Joker, bilinmeyen data type
+// Wildcard (?): Joker, unknown data type
 public class GenericWithWildcard {
 
     public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class GenericWithWildcard {
         List<Number> numbers = new ArrayList<>();
         List<Object> objects = new ArrayList<>();
 
-        System.out.println(">>>>>>>>>>>>>>>>>>Alttan Sinirlama <<<<<<<<<<<<<<<<<<<<");
+        System.out.println(">>>>>>>>>>>>>>>>>>Lower Limitation <<<<<<<<<<<<<<<<<<<<");
         addEllement(integers);
         System.out.println("integers = " + integers);
 //        addEllement(doubles);
@@ -25,7 +25,7 @@ public class GenericWithWildcard {
         System.out.println("objects = " + objects);
 
 
-        System.out.println(">>>>>>>>>>>>>>>>>>Ustten Sinirlama <<<<<<<<<<<<<<<<<<<<");
+        System.out.println(">>>>>>>>>>>>>>>>>>Upper Limitation <<<<<<<<<<<<<<<<<<<<");
 
         multiplyByTwo(integers);
         multiplyByTwo(doubles);
@@ -57,8 +57,8 @@ public class GenericWithWildcard {
         }
 
     }
-    // Generic yapiyi kullanirken ustten sinirlama
-    // Listedeki elemanlari 2 ile carpan bir method
+    // Upper limitation when using generic structure
+    // A method that multiplies the elements in the list by 2
 
     public static void multiplyByTwo(List<? extends Number> list) {
 
@@ -66,15 +66,15 @@ public class GenericWithWildcard {
 
     }
 
-    // ? : bilinmeyen data type
-    // Wildcard  : read-only   - sadece data type'indan bagimsiz islemler yapilabilir
+    // ? : unknown data type
+    // Wildcard  : read-only   - Only operations independent of the data type can be performed.
     public static void printElements(List<?> list) {
 
         for (Object object : list) {
             System.out.println(object + " ");
         }
 
-        // !!!!!!  NOT:  List<T> ve List<?> list benzer, fakat tamamen ayni degildir.
+        // !!!!!!  NOTE:  List<T> ve List<?> list is similar, but not exactly the same.
     }
 
     public static <T> void addElementsToList(List<T> list, T element) {
