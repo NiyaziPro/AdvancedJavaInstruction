@@ -1,13 +1,16 @@
 package threads;
 
-// Wait-Notify : Provides communication between threads
-
 /* Producer - Consumer
       Application for deposit and withdrawal transactions for a student's bank account
            If there is no money in the account, wait for the deposit (balance to increase).
            When the balance increases (when it is sufficient), the withdrawal will take place.
        */
-public class WaitNotify {
+
+//In multithreading applications,
+// if a thread needs to be run in order for another thread to continue,
+// communication can be provided with wait/notify or wait/interrupt.
+public class WaitInterrupt {
+
     public static int balance = 0;
 
     //Deposit process
@@ -15,8 +18,7 @@ public class WaitNotify {
         System.out.println(Thread.currentThread().getName() + " wants to deposit money.");
         this.balance += amount;
         System.out.println("Deposit transaction successful, available balance: " + this.balance);
-        notify(); // method sends notifications to waiting threads with wait
-        //notifyAll(); // method activates all the waiting threads with wait
+
     }
 
     //Withdrawal process
@@ -27,16 +29,16 @@ public class WaitNotify {
             System.out.println("Insufficient balance!!! Current balance: " + this.balance);
             System.out.println("Waiting for balance to update...");
             try {
-                wait(); // temporarily releases the monitored object, until notified with notify
+                wait();
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                System.out.println("\u001B[31mBalance updated. Processing in progress...");
             }
         }
 
         //If the balance is sufficient
         if (balance >= amount) {
             this.balance -= amount;
-            System.out.println("Withdrawal transaction successful. Current balance: " + this.balance);
+            System.out.println("\u001B[32mWithdrawal transaction successful. Current balance: " + this.balance);
         }else {
             System.out.println("Insufficient balance!!! Current balance: " + this.balance);
             System.out.println("Waiting for balance to update...");
@@ -46,7 +48,7 @@ public class WaitNotify {
 
     public static void main(String[] args) {
 
-        WaitNotify object = new WaitNotify();
+        WaitInterrupt object = new WaitInterrupt();
 
         Thread thread1 = new Thread(new Runnable() {
             @Override
@@ -54,7 +56,7 @@ public class WaitNotify {
                 object.withdraw(1000);
             }
         });
-        thread1.setName("Student");
+        thread1.setName("Consumer");
         thread1.start();
 
         Thread thread2 = new Thread(new Runnable() {
@@ -66,10 +68,13 @@ public class WaitNotify {
                     throw new RuntimeException(e);
                 }
                 object.deposit(2000);
+                thread1.interrupt(); // Forcefully stops the waiting process of thread1
             }
         });
-        thread2.setName("Parent");
+        thread2.setName("Producer");
         thread2.start();
+
+
 
 
     }
