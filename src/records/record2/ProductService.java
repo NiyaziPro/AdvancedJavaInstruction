@@ -3,9 +3,7 @@ package records.record2;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-Product related operations
- */
+/* Product related operations */
 public class ProductService {
 
     List<Product> products = new ArrayList<>();
