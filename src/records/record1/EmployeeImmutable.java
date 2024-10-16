@@ -1,6 +1,13 @@
 package records.record1;
 
+import java.util.Objects;
+
 /*
+ DTO (Data Transfer Object) is a simple object used to transfer data between different layers of an application,
+ typically between the presentation layer and the service or persistence layers.
+ The key purpose of a DTO is to carry data between processes without any business logic involved,
+ making it a lightweight, serializable object.
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
 In some cases, we may want to define immutable classes to ensure thread safety, data consistency in the cache, ease of testing, etc.
  */
 public class EmployeeImmutable {
@@ -37,5 +44,17 @@ public class EmployeeImmutable {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        EmployeeImmutable that = (EmployeeImmutable) object;
+        return Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname) && Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstname, lastname, email);
+    }
 
 }
